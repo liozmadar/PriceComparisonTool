@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחשבון מחיר ליחידה</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            direction: rtl;
+        }
+        .container {
+            width: 600px;
+            margin: 0 auto;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="number"], button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        button {
+            cursor: pointer;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .column {
+            flex: 1;
+        }
+        .result, .comparison {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f4f4f4;
+        }
+        .comparison {
+            background-color: #e8f4e8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>מחשבון מחיר ליחידה</h2>
+
+        <div class="row">
+            <!-- קלט עבור המוצר הראשון -->
+            <div class="column">
+                <div class="input-group">
+                    <label for="price1">מחיר מוצר 1</label>
+                    <input type="number" id="price1" placeholder="מחיר" required>
+                    <label for="quantity1">כמות מוצר 1</label>
+                    <input type="number" id="quantity1" placeholder="כמות" required>
+                </div>
+            </div>
+
+            <!-- קלט עבור המוצר השני (אופציונלי להשוואה) -->
+            <div class="column">
+                <div class="input-group">
+                    <label for="price2">מחיר מוצר 2 (אופציונלי)</label>
+                    <input type="number" id="price2" placeholder="מחיר">
+                    <label for="quantity2">כמות מוצר 2 (אופציונלי)</label>
+                    <input type="number" id="quantity2" placeholder="כמות">
+                </div>
+            </div>
+        </div>
+
+        <button onclick="calculatePrice()">חשב</button>
+
+        <!-- תוצאות -->
+        <div class="result" id="result1"></div>
+        <div class="result" id="result2"></div>
+        <div class="comparison" id="comparison"></div>
+    </div>
+
+    <script>
+        function calculatePrice() {
+            const price1 = parseFloat(document.getElementById('price1').value);
+            const quantity1 = parseFloat(document.getElementById('quantity1').value);
+            const price2 = parseFloat(document.getElementById('price2').value);
+            const quantity2 = parseFloat(document.getElementById('quantity2').value);
+
+            // איפוס תוצאות קודמות
+            document.getElementById('result1').innerHTML = '';
+            document.getElementById('result2').innerHTML = '';
+            document.getElementById('comparison').innerHTML = '';
+
+            // בדיקת נכונות קלט עבור המוצר הראשון
+            if (!price1 || !quantity1) {
+                document.getElementById('result1').innerHTML = "אנא הזן ערכים נכונים עבור מוצר 1.";
+                return;
+            }
+
+            const pricePerUnit1 = price1 / quantity1;
+            document.getElementById('result1').innerHTML = `מחיר ליחידה עבור מוצר 1: ₪${pricePerUnit1.toFixed(2)}.`;
+
+            // אם יש מוצר שני, השווה בין המחירים
+            if (price2 && quantity2) {
+                if (!price2 || !quantity2) {
+                    document.getElementById('result2').innerHTML = "אנא הזן ערכים נכונים עבור מוצר 2.";
+                    return;
+                }
+
+                const pricePerUnit2 = price2 / quantity2;
+                document.getElementById('result2').innerHTML = `מחיר ליחידה עבור מוצר 2: ₪${pricePerUnit2.toFixed(2)}.`;
+
+                // השוואה בין המוצרים
+                if (pricePerUnit1 < pricePerUnit2) {
+                    document.getElementById('comparison').innerHTML = "מוצר 1 זול יותר.";
+                } else if (pricePerUnit1 > pricePerUnit2) {
+                    document.getElementById('comparison').innerHTML = "מוצר 2 זול יותר.";
+                } else {
+                    document.getElementById('comparison').innerHTML = "שני המוצרים עולים אותו מחיר ליחידה.";
+                }
+            } else {
+                document.getElementById('comparison').innerHTML = "האם תרצה להשוות עם מוצר נוסף?";
+            }
+        }
+    </script>
+</body>
+</html>

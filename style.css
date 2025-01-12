@@ -1,0 +1,66 @@
+/* עיצוב כללי של הדף */
+body {
+    font-family: Arial, sans-serif; /* הגדרת גופן כללי לדף */
+    background-color: #f9f9f9; /* צבע רקע עדין */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* עיצוב הכותרת הראשית */
+h1 {
+    color: #333;
+    margin-top: 20px;
+}
+
+/* עיצוב מיכל המוצרים להצגה זה לצד זה */
+.products-container {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin-top: 20px;
+}
+
+/* עיצוב תיבות הקלט */
+input[type="number"] {
+    width: 200px; /* רוחב תיבת הקלט */
+    padding: 8px; /* ריווח פנימי */
+    margin: 10px; /* ריווח חיצוני */
+    border: 1px solid #ccc; /* מסגרת דקה */
+    border-radius: 4px; /* פינות מעוגלות */
+    font-size: 16px;
+}
+
+/* עיצוב הכפתור לחישוב */
+button {
+    background-color: #4CAF50; /* צבע רקע ירוק */
+    color: white; /* צבע טקסט לבן */
+    padding: 10px 20px; /* ריווח פנימי */
+    margin: 20px 0; /* ריווח חיצוני */
+    border: none; /* ללא מסגרת */
+    border-radius: 4px; /* פינות מעוגלות */
+    cursor: pointer; /* סמן יד על הכפתור */
+    font-size: 16px;
+}
+
+/* עיצוב הכפתור כאשר מרחפים מעליו */
+button:hover {
+    background-color: #45a049; /* צבע רקע כהה יותר */
+}
+
+/* עיצוב אזור התוצאה */
+#result {
+    font-size: 18px; /* גודל טקסט */
+    color: #333; /* צבע טקסט */
+    margin-top: 20px; /* ריווח חיצוני */
+    text-align: center;
+}
+
+/* עיצוב חלוקה בין המוצרים */
+.products-container div {
+    margin: 15px;
+    flex: 1;
+}
