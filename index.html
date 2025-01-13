@@ -95,6 +95,11 @@
             document.getElementById('result2').innerHTML = '';
             document.getElementById('comparison').innerHTML = '';
 
+            // פונקציה לחיתוך למקסימום שתי ספרות אחרי הנקודה
+            function formatNumber(num) {
+                return num.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0];
+            }
+
             // בדיקת נכונות קלט עבור המוצר הראשון
             if (!price1 || !quantity1) {
                 document.getElementById('result1').innerHTML = "אנא הזן ערכים נכונים עבור מוצר 1.";
@@ -102,17 +107,12 @@
             }
 
             const pricePerUnit1 = price1 / quantity1;
-            document.getElementById('result1').innerHTML = `מחיר ליחידה עבור מוצר 1: ₪${pricePerUnit1}.`;
+            document.getElementById('result1').innerHTML = `מחיר ליחידה עבור מוצר 1: ₪${formatNumber(pricePerUnit1)}.`;
 
             // אם יש מוצר שני, השווה בין המחירים
             if (price2 && quantity2) {
-                if (!price2 || !quantity2) {
-                    document.getElementById('result2').innerHTML = "אנא הזן ערכים נכונים עבור מוצר 2.";
-                    return;
-                }
-
                 const pricePerUnit2 = price2 / quantity2;
-                document.getElementById('result2').innerHTML = `מחיר ליחידה עבור מוצר 2: ₪${pricePerUnit2}.`;
+                document.getElementById('result2').innerHTML = `מחיר ליחידה עבור מוצר 2: ₪${formatNumber(pricePerUnit2)}.`;
 
                 // השוואה בין המוצרים
                 if (pricePerUnit1 < pricePerUnit2) {
