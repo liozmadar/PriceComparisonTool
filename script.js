@@ -1,41 +1,47 @@
-// הפונקציה מופעלת כאשר לוחצים על כפתור 'חשב'
-document.getElementById("calculateBtn").addEventListener("click", function() {
-    // קריאת ערכי המחיר והכמות מהמוצר הראשון
-    let price1 = parseFloat(document.getElementById("price1").value);
-    let quantity1 = parseFloat(document.getElementById("quantity1").value);
+function calculatePrice() {
+    // קבלת הערכים מהקלטים
+    const price1 = parseFloat(document.getElementById('price1').value);
+    const quantity1 = parseFloat(document.getElementById('quantity1').value);
+    const price2 = parseFloat(document.getElementById('price2').value);
+    const quantity2 = parseFloat(document.getElementById('quantity2').value);
 
-    // קריאת ערכי המחיר והכמות מהמוצר השני
-    let price2 = parseFloat(document.getElementById("price2").value);
-    let quantity2 = parseFloat(document.getElementById("quantity2").value);
+    // שינוי סגנון הכפתור לאחר לחיצה
+    const button = document.querySelector("button");
+    button.style.backgroundColor = "#3e8e41"; // צבע שונה לכפתור
+    button.style.transform = "scale(0.95)"; // מקטין את הכפתור קצת
+    setTimeout(() => {
+        button.style.backgroundColor = "#4CAF50"; // מחזיר את הצבע הרגיל
+        button.style.transform = "scale(1)"; // מחזיר את הגודל הרגיל
+    }, 50); // אחרי 200 מילישניות הכפתור יחזור למצבו הרגיל
 
-    // בדיקה אם לפחות מוצר אחד הוזן
-    if (isNaN(price1) || isNaN(quantity1)) {
-        document.getElementById("result").innerText = "אנא מלא את השדות למוצר הראשון.";
+    // איפוס תוצאות קודמות
+    document.getElementById('result1').innerHTML = '';
+    document.getElementById('result2').innerHTML = '';
+    document.getElementById('comparison').innerHTML = '';
+
+    // בדיקת נכונות קלט עבור המוצר הראשון
+    if (!price1 || !quantity1) {
+        document.getElementById('result1').innerHTML = "אנא הזן ערכים נכונים עבור מוצר 1.";
         return;
     }
 
-    // חישוב המחיר ליחידה למוצר הראשון
-    let unitPrice1 = price1 / quantity1;
-    let resultText = `מוצר 1: ${unitPrice1.toFixed(2)} ₪ ליחידה.`;
+    const pricePerUnit1 = price1 / quantity1;
+    document.getElementById('result1').innerHTML = `מחיר ליחידה עבור מוצר 1: ₪${pricePerUnit1.toFixed(2)}.`;
 
-    // בדיקה אם המוצר השני מלא לצורך השוואה
-    if (!isNaN(price2) && !isNaN(quantity2)) {
-        let unitPrice2 = price2 / quantity2;
-        resultText += `\nמוצר 2: ${unitPrice2.toFixed(2)} ₪ ליחידה.`;
+    // אם יש מוצר שני, השווה בין המחירים
+    if (price2 && quantity2) {
+        const pricePerUnit2 = price2 / quantity2;
+        document.getElementById('result2').innerHTML = `מחיר ליחידה עבור מוצר 2: ₪${pricePerUnit2.toFixed(2)}.`;
 
-        // השוואה בין המחירים ליחידה
-        if (unitPrice1 < unitPrice2) {
-            resultText += "\nמוצר 1 משתלם יותר.";
-        } else if (unitPrice1 > unitPrice2) {
-            resultText += "\nמוצר 2 משתלם יותר.";
+        // השוואה בין המוצרים
+        if (pricePerUnit1 < pricePerUnit2) {
+            document.getElementById('comparison').innerHTML = "מוצר 1 זול יותר.";
+        } else if (pricePerUnit1 > pricePerUnit2) {
+            document.getElementById('comparison').innerHTML = "מוצר 2 זול יותר.";
         } else {
-            resultText += "\nשני המוצרים שווים במחיר ליחידה.";
+            document.getElementById('comparison').innerHTML = "שני המוצרים עולים אותו מחיר ליחידה.";
         }
     } else {
-        // הודעה ידידותית כאשר רק מוצר אחד מחושב
-        resultText += "\nתרצה להשוות למוצר נוסף? מלא את השדות הנוספים!";
+        document.getElementById('comparison').innerHTML = "האם תרצה להשוות עם מוצר נוסף?";
     }
-
-    // הצגת התוצאה בדף
-    document.getElementById("result").innerText = resultText;
-});
+}
