@@ -102,7 +102,7 @@
             }
 
             const pricePerUnit1 = price1 / quantity1;
-            document.getElementById('result1').innerHTML = `מחיר ליחידה עבור מוצר 1: ₪${pricePerUnit1.toFixed(2)}.`;
+            document.getElementById('result1').innerHTML = `מחיר ליחידה עבור מוצר 1: ₪${pricePerUnit1}.`;
 
             // אם יש מוצר שני, השווה בין המחירים
             if (price2 && quantity2) {
@@ -112,7 +112,7 @@
                 }
 
                 const pricePerUnit2 = price2 / quantity2;
-                document.getElementById('result2').innerHTML = `מחיר ליחידה עבור מוצר 2: ₪${pricePerUnit2.toFixed(2)}.`;
+                document.getElementById('result2').innerHTML = `מחיר ליחידה עבור מוצר 2: ₪${pricePerUnit2}.`;
 
                 // השוואה בין המוצרים
                 if (pricePerUnit1 < pricePerUnit2) {
