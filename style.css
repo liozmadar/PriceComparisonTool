@@ -1,66 +1,64 @@
-/* עיצוב כללי של הדף */
 body {
-    font-family: Arial, sans-serif; /* הגדרת גופן כללי לדף */
-    background-color: #f9f9f9; /* צבע רקע עדין */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    direction: rtl;
 }
 
-/* עיצוב הכותרת הראשית */
-h1 {
-    color: #333;
-    margin-top: 20px;
+.container {
+    width: 600px;
+    margin: 0 auto;
 }
 
-/* עיצוב מיכל המוצרים להצגה זה לצד זה */
-.products-container {
-    display: flex;
-    justify-content: space-around;
-    width: 80%;
-    margin-top: 20px;
+.input-group {
+    margin-bottom: 15px;
 }
 
-/* עיצוב תיבות הקלט */
-input[type="number"] {
-    width: 200px; /* רוחב תיבת הקלט */
-    padding: 8px; /* ריווח פנימי */
-    margin: 10px; /* ריווח חיצוני */
-    border: 1px solid #ccc; /* מסגרת דקה */
-    border-radius: 4px; /* פינות מעוגלות */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="number"], button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
     font-size: 16px;
 }
 
-/* עיצוב הכפתור לחישוב */
 button {
-    background-color: #4CAF50; /* צבע רקע ירוק */
-    color: white; /* צבע טקסט לבן */
-    padding: 10px 20px; /* ריווח פנימי */
-    margin: 20px 0; /* ריווח חיצוני */
-    border: none; /* ללא מסגרת */
-    border-radius: 4px; /* פינות מעוגלות */
-    cursor: pointer; /* סמן יד על הכפתור */
-    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.1s ease-in-out;
 }
 
-/* עיצוב הכפתור כאשר מרחפים מעליו */
 button:hover {
-    background-color: #45a049; /* צבע רקע כהה יותר */
+    background-color: #45a049;
 }
 
-/* עיצוב אזור התוצאה */
-#result {
-    font-size: 18px; /* גודל טקסט */
-    color: #333; /* צבע טקסט */
-    margin-top: 20px; /* ריווח חיצוני */
-    text-align: center;
+button:active {
+    background-color: #3e8e41;
+    transform: scale(0.98);
 }
 
-/* עיצוב חלוקה בין המוצרים */
-.products-container div {
-    margin: 15px;
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.column {
     flex: 1;
+}
+
+.result, .comparison {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f4f4f4;
+}
+
+.comparison {
+    background-color: #e8f4e8;
 }
