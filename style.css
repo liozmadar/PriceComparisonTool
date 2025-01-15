@@ -5,7 +5,8 @@ body {
 }
 
 .container {
-    width: 600px;
+    max-width: 80%; /* רוחב מקסימלי מותאם לפלאפונים וטאבלטים */
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -47,6 +48,7 @@ button:active {
     display: flex;
     justify-content: space-between;
     gap: 20px;
+    flex-wrap: wrap; /* התאמה טובה יותר לתצוגה במובייל */
 }
 
 .column {
@@ -61,4 +63,25 @@ button:active {
 
 .comparison {
     background-color: #e8f4e8;
+}
+
+/* התאמת עיצוב למסכים קטנים (פלאפונים) */
+@media (max-width: 600px) {
+    .container {
+        max-width: 100%;
+    }
+
+    input[type="number"], button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .row {
+        gap: 10px;
+    }
+
+    .result, .comparison {
+        padding: 8px;
+        font-size: 14px;
+    }
 }
