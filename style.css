@@ -65,27 +65,23 @@ button:active {
 
 /* התאמת עיצוב למסכים קטנים (כמו פלאפונים) */
 @media (max-width: 600px) {
-    .calculator {
-        padding: 20px;
-        max-width: 80%;
+    .container {
+        padding: 15px;
+        max-width: 80%; /* השתמש ברוחב מלא למסכים קטנים */
     }
 
-    h1 {
-        font-size: 1.5em;
-    }
-
-    .section p {
-        font-size: 1em;
-    }
-
-    input[type="number"] {
-        width: 80px;
-        font-size: 0.9em;
-    }
-
-    .result {
-        font-size: 1em;
+    input[type="number"], button {
+        font-size: 14px;
         padding: 8px;
     }
-}
 
+    .row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .result, .comparison {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
