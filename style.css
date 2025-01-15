@@ -5,7 +5,7 @@
 }
 
 .container {
-    width: 600px;
+    width: 500px;
     margin: 0 auto;
 }
 
@@ -64,7 +64,7 @@ button:active {
 }
 
 /* התאמת עיצוב למסכים קטנים (כמו פלאפונים) */
-@media (max-width: 600px) {
+@media (max-width: 80%) {
     .container {
         padding: 15px;
         max-width: 80%; /* השתמש ברוחב מלא למסכים קטנים */
