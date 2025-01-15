@@ -1,17 +1,16 @@
-body {
+ body {
     font-family: Arial, sans-serif;
     padding: 20px;
     direction: rtl;
 }
 
 .container {
-    width: 100%;
-    max-width: 300px; /* רוחב מקסימלי למחשבים */
+    width: 600px;
     margin: 0 auto;
 }
 
 .input-group {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 label {
@@ -20,9 +19,9 @@ label {
 }
 
 input[type="number"], button {
-    width: 90%;
-    padding: 5px;
-    margin: 1px 0;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
     font-size: 16px;
 }
 
@@ -48,7 +47,6 @@ button:active {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    flex-wrap: wrap;
 }
 
 .column {
@@ -65,23 +63,29 @@ button:active {
     background-color: #e8f4e8;
 }
 
-/* התאמת עיצוב למסכים קטנים (פלאפונים) */
+/* התאמת עיצוב למסכים קטנים (כמו פלאפונים) */
 @media (max-width: 600px) {
-    .container {
-        max-width: 100%;
+    .calculator {
+        padding: 20px;
+        max-width: 80%;
     }
 
-    input[type="number"], button {
-        font-size: 14px;
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .section p {
+        font-size: 1em;
+    }
+
+    input[type="number"] {
+        width: 80px;
+        font-size: 0.9em;
+    }
+
+    .result {
+        font-size: 1em;
         padding: 8px;
-    }
-
-    .row {
-        gap: 10px;
-    }
-
-    .result, .comparison {
-        padding: 8px;
-        font-size: 14px;
     }
 }
+
