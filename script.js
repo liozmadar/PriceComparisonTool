@@ -21,27 +21,27 @@ function calculatePrice() {
 
     // בדיקת נכונות קלט עבור המוצר הראשון
     if (!price1 || !quantity1) {
-        document.getElementById('result1').innerHTML = "אנא הזן ערכים נכונים עבור מוצר 1.";
+        document.getElementById('result1').innerHTML = "Please enter correct values for product 1";
         return;
     }
 
     const pricePerUnit1 = price1 / quantity1;
-    document.getElementById('result1').innerHTML = `מחיר ליחידה עבור מוצר 1: ₪${pricePerUnit1.toFixed(2)}.`;
+    document.getElementById('result1').innerHTML = `Price per unit for product 1: $${pricePerUnit1.toFixed(2)}.`;
 
     // אם יש מוצר שני, השווה בין המחירים
     if (price2 && quantity2) {
         const pricePerUnit2 = price2 / quantity2;
-        document.getElementById('result2').innerHTML = `מחיר ליחידה עבור מוצר 2: ₪${pricePerUnit2.toFixed(2)}.`;
+        document.getElementById('result2').innerHTML = `מחיר ליחידהPrice per unit for product 2: $${pricePerUnit2.toFixed(2)}.`;
 
         // השוואה בין המוצרים
         if (pricePerUnit1 < pricePerUnit2) {
-            document.getElementById('comparison').innerHTML = "מוצר 1 זול יותר.";
+            document.getElementById('comparison').innerHTML = "Product 1 is cheaper.";
         } else if (pricePerUnit1 > pricePerUnit2) {
-            document.getElementById('comparison').innerHTML = "מוצר 2 זול יותר.";
+            document.getElementById('comparison').innerHTML = "Product 2 is cheaper.";
         } else {
-            document.getElementById('comparison').innerHTML = "שני המוצרים עולים אותו מחיר ליחידה.";
+            document.getElementById('comparison').innerHTML = "Both products cost the same per unit.";
         }
     } else {
-        document.getElementById('comparison').innerHTML = "האם תרצה להשוות עם מוצר נוסף?";
+        document.getElementById('comparison').innerHTML = "Would you like to compare with another product?";
     }
 }
