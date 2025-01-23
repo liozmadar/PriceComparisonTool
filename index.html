@@ -16,9 +16,9 @@
             <div class="column">
                 <div class="input-group">
                     <label for="price1">Product 1 price 💵</label>
-                    <input type="number" id="price1" placeholder="price" required oninput="calculatePrice()">
+                    <input type="number" id="price1" min="0" placeholder="price" required oninput="calculatePrice()">
                     <label for="quantity1">Product 1 quantity 📦</label>
-                    <input type="number" id="quantity1" placeholder="quantity" required oninput="calculatePrice()">
+                    <input type="number" id="quantity1" min="0" placeholder="quantity" required oninput="calculatePrice()">
                 </div>
             </div>
 
@@ -26,9 +26,9 @@
             <div class="column">
                 <div class="input-group">
                     <label for="price2">Product 2 price 💵(Optional)</label>
-                    <input type="number" id="price2" placeholder="price" oninput="calculatePrice()">
+                    <input type="number" id="price2" min="0" placeholder="price" oninput="calculatePrice()">
                     <label for="quantity2">Product 2 quantity 📦(Optional)</label>
-                    <input type="number" id="quantity2" placeholder="quantity" oninput="calculatePrice()">
+                    <input type="number" id="quantity2" min="0" placeholder="quantity" oninput="calculatePrice()">
                 </div>
             </div>
         </div>
