@@ -31,7 +31,7 @@ function calculatePrice() {
     // אם יש מוצר שני, השווה בין המחירים
     if (price2 && quantity2) {
         const pricePerUnit2 = price2 / quantity2;
-        document.getElementById('result2').innerHTML = `מחיר ליחידהPrice per unit for product 2: $${pricePerUnit2.toFixed(2)}.`;
+        document.getElementById('result2').innerHTML = `Price per unit for product 2: $${pricePerUnit2.toFixed(2)}.`;
 
         // השוואה בין המוצרים
         if (pricePerUnit1 < pricePerUnit2) {
