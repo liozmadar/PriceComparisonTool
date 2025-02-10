@@ -1,12 +1,26 @@
- body {
+body {
     font-family: Arial, sans-serif;
     padding: 20px;
+    background-color: #e0f7fa; /* צבע רקע רך וקריר */
 }
 
 .container {
     width: 500px;
     margin: 0 auto;
+    border: 2px solid #4CAF50; /* מסגרת ירוקה בהירה */
+    background-color: #ffffff; /* רקע לבן בתוך הקונטיינר */
+    border-radius: 12px; /* פינות מעוגלות יותר */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* צללית רכה */
 }
+
+h2 {
+    text-align: center; /* ממרכז את הכותרת */
+    width: 100%; /* מבטיח שהכותרת תהיה בפרופורציה נכונה */
+    margin-top: 20px; /* מוסיף יותר ריווח מעל הכותרת */
+    color: #4CAF50; /* הופך את הכותרת לירוקה */
+}
+
+
 
 .input-group {
     margin-bottom: 10px;
@@ -19,14 +33,14 @@ label {
 
 input[type="number"], button {
     width: 80%;
-    padding: 5px;
+    padding: 10px; /* שינוי padding לקלטים */
     margin: 0;
     font-size: 1em;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc; /* שינוי עובי מסגרת הקלטים */
     border-radius: 6px;
     text-align: center;
     background-color: #f9f9f9;
-    color: #888;
+    color: #555; /* שינוי צבע טקסט בקלטים */
     transition: border-color 0.3s, color 0.3s;
 }
 
@@ -35,9 +49,15 @@ button {
     background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 4px; /* נשאר 4px כמו שביקשת */
     transition: background-color 0.3s, transform 0.1s ease-in-out;
+    display: block; /* מאפשר שימוש ב-margin auto */
+    margin: 20px auto; /* מרכז את הכפתור */
+    width: 100%; /* שומר על הפרופורציות של הכפתור */
+    max-width: 300px; /* מונע התפרסות יתר */
+    text-align: center; /* מבטיח שהטקסט יישאר ממורכז */
 }
+
 
 button:hover {
     background-color: #45a049;
@@ -50,17 +70,27 @@ button:active {
 
 .row {
     display: flex;
-    justify-content: space-between;
-    gap: 1px;
+    justify-content: center; /* מרכז את כל השורה */
+    gap: 20px; /* רווח בין שני המוצרים */
+    align-items: center; /* מיישר את הכל אנכית */
+    text-align: center; /* ממרכז את כל התוכן בתוך המוצרים */
 }
 
 .column {
-    flex: 1;
+    display: flex;
+    flex-direction: column; /* מסדר את הקלטים אחד מתחת לשני */
+    align-items: center; /* מיישר את הקלטים לאמצע */
 }
 
+
 .result, .comparison {
+  border-radius: 8px; /* הופך את הפינות לעגולות יותר */
+  margin: 20px auto; /* מרכז את הבלוקים עצמם */
+  width: 100%; /* שומר על פרופורציות נכונות */
+  max-width: 300px; /* מונע מהם להתפרס יותר מדי */
+  text-align: center; /* ממרכז את הטקסט בתוך התיבות */
     margin-top: 20px;
-    padding: 10px;
+    padding: 10px; /* השארנו כמו שהוא לפי הבקשה */
     background-color: #f4f4f4;
 }
 
