@@ -5,6 +5,20 @@ function calculatePrice() {
     const price2 = parseFloat(document.getElementById('price2').value);
     const quantity2 = parseFloat(document.getElementById('quantity2').value);
 
+  
+  
+    // Check for negative values and stop calculation
+    if (price1 < 0 || quantity1 < 0) {
+        document.getElementById('result1').innerHTML = "Negative values are not allowed for product 1.";
+        return;
+    }
+
+    if (price2 < 0 || quantity2 < 0) {
+        document.getElementById('result2').innerHTML = "Negative values are not allowed for product 2.";
+        return;
+    }
+  
+  
     // שינוי סגנון הכפתור לאחר לחיצה
     const button = document.querySelector("button");
     button.style.backgroundColor = "#3e8e41"; // צבע שונה לכפתור
@@ -45,3 +59,13 @@ function calculatePrice() {
         document.getElementById('comparison').innerHTML = "Would you like to compare with another product?";
     }
 }
+
+
+// // Prevent negative numbers from being entered in the first place
+// document.querySelectorAll('input[type="number"]').forEach(input => {
+//     input.addEventListener('input', () => {
+//         if (input.value.includes('-')) {
+//             input.value = input.value.replace('-', ''); // Remove the negative sign immediately
+//         }
+//     });
+// });
